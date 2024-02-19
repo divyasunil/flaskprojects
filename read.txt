@@ -1,0 +1,4 @@
+mkdir FlaskProjects
+cd FlaskProjects
+mkvirtualenv flaskenv
+pip install flask
