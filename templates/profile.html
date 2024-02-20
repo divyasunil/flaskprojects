@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block body %}
     Profile
     <br/>
     Name: Divya Sunil
-
-    <h2>My name is {{username}}</h2>
-</body>
-</html>
+    {% if isActive %}
+    <h2>{{username}} Logged In</h2>
+    {% else %}
+    <h2>{{username}} Logged Out</h2>
+    {% endif %}
+{% endblock %}
