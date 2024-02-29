@@ -1,0 +1,88 @@
+pwd
+mkvirtualenv test --python=/usr/bin/python3.6
+
+git clone https://github.com/divyasunil/todolist
+
+cd DemoPython
+
+cd todolist
+
+pip install django
+
+Dashboard-> web-> add new web app-> select manual-> python 3.6
+
+reload click
+launch click
+
+
+pip install mysql-connector-python
+pip install pillow
+pip install mysqlclient
+
+set config in /var/www/divyasunil_pythonanywhere_com_wsgi.py
+/************************/
+# +++++++++++ DJANGO +++++++++++
+# To use your own django app use code like this:
+import os
+import sys
+#
+## assuming your django settings file is at '/home/divyasunil/mysite/mysite/settings.py'
+## and your manage.py is is at '/home/divyasunil/mysite/manage.py'
+path = '/home/divyasunil/todolist'
+if path not in sys.path:
+    sys.path.append(path)
+#
+os.environ['DJANGO_SETTINGS_MODULE'] = 'todoproject.settings'
+#
+## then:
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
+/*************************/
+goto settings page
+then set,
+ALLOWED_HOSTS = ['*']
+
+
+
+Not for todo project , Only for others
+/****************************/
+DB Settings password :divyaCG@12345
+/***************************/
+create database tododatabase
+
+put in settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'tododatabase',
+        'USER': 'divyasunil',
+        'PASSWORD': 'divyaCG@12345',
+        'HOST': 'divyasunil.mysql.pythonanywhere-services.com'
+    }
+}
+/****************************/
+
+In WEB Tab
+
+set virtual environment
+/home/divyasunil/.virtualenvs/test
+
+set static folder path
+url: /static/
+Directory:/home/divyasunil/todolist/static
+
+Delete Migrations: except __init__.py
+/home/divyasunil/todolist/todoapp/migrations
+
+console-> mysql->
+commands:
+show databases;
+
+console->bash console->
+commands:
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py runserver 8001
+
